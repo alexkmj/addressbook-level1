@@ -3,8 +3,21 @@
 // user guide available at http://gradle.org/docs/4.8.1/userguide/tutorial_java_projects.html
 
 plugins {
+    id 'java'
+    id 'application'
     id 'org.asciidoctor.convert' version '1.5.6'
 }
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'junit-addons', name: 'junit-addons', version: '1.4'
+}
+
+mainClassName = 'AddressBook'
 
 asciidoctor {
     backends 'html5'
@@ -44,4 +57,10 @@ task copyStylesheets(type: Copy) {
 }
 asciidoctor.dependsOn copyStylesheets
 
-defaultTasks 'clean', 'asciidoctor'
+task copyTestResources(type: Copy) {
+    from "${projectDir}/src/test/resources"
+    into "${projectDir}"
+}
+test.dependsOn copyTestResources
+
+defaultTasks 'clean', 'test', 'build', 'asciidoctor'
