@@ -9,6 +9,12 @@ usually write in data structure modules.
 * It can be used to achieve a number of beginner-level <<LearningOutcomes#, Learning Outcomes>> without
 running into the complications of OOP or GUI programmings.
 
+== Changes Made
+
+* Changes to project's directory
+* Automate testing before building project
+* Added command to sent direct WhatsApp
+
 == Site Map
 
 * <<UserGuide#, User Guide>>

@@ -63,4 +63,9 @@ task copyTestResources(type: Copy) {
 }
 test.dependsOn copyTestResources
 
+task openUrlInBrowser {
+    doLast {
+    }
+}
+
 defaultTasks 'clean', 'test', 'build', 'asciidoctor'
